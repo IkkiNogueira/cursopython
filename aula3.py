@@ -1,33 +1,9 @@
 ##### Funções #####
-
+from aula3_ctaCorrente import Conta
+from aula3_ctaPoupanca import Poupanca
 from random import random, randrange
 
-class Conta:
-
-    def __init__(self, numero):
-        self.numero = numero
-        self.saldo = 0.0
-
-    def consultarSaldo(self):
-        return self.saldo
-    
-    def creditar(self, credval):
-        self.saldo += credval
-
-    def debitar(self, debitval):
-        self.saldo -= debitval
-    
-    def transferir(self, conta, transfval):
-        if transfval > 0:    
-            if self.saldo > 0 and self.saldo >= transfval:
-                self.saldo -= transfval
-                conta.saldo += transfval
-                print("Valor transferido: ", transfval)
-            else:
-                print(transfval, "Saldo insdisponível")
-        else:
-            print("Não foi feita nenhuma transferencia")
-
+# CONTA CORRENTE
 # Instanciando os objetos oConta e definindo o número de cada uma das contas
 oConta1 = Conta(1)
 oConta2 = Conta(2)
@@ -46,3 +22,18 @@ oConta1.transferir(oConta2,randrange(10))
 # Consulta saldo das contas
 print("Saldo da conta 1 após as tranferência: ",  oConta1.consultarSaldo())
 print("Saldo da conta 2 após as tranferência: ", oConta2.consultarSaldo())
+
+oConta1.__saldo = 1000
+print("Tentando alterar valor do saldo: ", oConta1.consultarSaldo())
+
+#  CONTA POUPANCA
+oCtaPoup1 = Poupanca(1)
+print(oCtaPoup1.consultarSaldo())
+
+oCtaPoup1.creditar(200.0)
+print("Valor após creditar: ",oCtaPoup1.consultarSaldo())
+
+oCtaPoup1.gerarRendimento(10)
+print("Valor do rendimento: ",oCtaPoup1.consultaRendimento())
+
+print("Saldo após o rendimento: ",oCtaPoup1.consultarSaldo())

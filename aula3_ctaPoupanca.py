@@ -1,4 +1,3 @@
-from random import random, randrange
 from aula3_ctaCorrente import Conta
 
 class Poupanca(Conta):
@@ -13,5 +12,5 @@ class Poupanca(Conta):
     def gerarRendimento(self, taxa):
         self.__rendimento += super().consultarSaldo() * taxa / 100
 
-oCtaPoup1 = Poupanca(1)
-print(oCtaPoup1.consultarSaldo())
+    def consultarSaldo(self):
+        return super().consultarSaldo() + self.__rendimento
