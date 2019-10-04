@@ -28,16 +28,3 @@ class Conta:
                 print("Saldo insdisponível")
         else:
             print("Não foi feita nenhuma transferencia")
-
-class Poupanca(Conta):
-    
-    def __init__(self, numero):
-        super().__init__(numero)
-        self.__rendimento = 0.0
-    
-    def consultaRendimento(self):
-        return self.__rendimento
-
-    def gerarRendimento(self, taxa):
-        self.__rendimento += super().consultarSaldo() * taxa / 100
-
