@@ -49,17 +49,17 @@ class Conexoes:
         value_len = len(self.listValue)
 
         insert = "INSERT INTO clientes ("
-        for x in self.listKey:
-            if self.listKey.index(x) == key_len:
-                insert += self.listKey,")"
+        for key in self.listKey:
+            if self.listKey.index(key) == key_len:
+                insert + key,")"
             else:
-                insert += self.listKey,","
+                insert + key,","
         insert += "values ("
-        for x in self.listValue:
-            if self.listValue.index(x) == value_len:
-                insert += self.listKey,")"
+        for value in self.listValue:
+            if self.listValue.index(value) == value_len:
+                insert + value,")"
             else:
-                insert += self.listValue,","
+                insert + value,","
         print(insert)
         try:
             c = self.conn.cursor()
